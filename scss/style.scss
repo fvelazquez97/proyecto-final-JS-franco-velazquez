@@ -1,0 +1,154 @@
+@import "variables";
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  background-color: $color-secundario;
+}
+
+body {
+  background-color: $color-primario;
+}
+
+footer {
+  background-color: $color-secundario;
+  text-align: center;
+}
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 100px 0;
+}
+
+.divPadre {
+  width: 650px;
+  height: fit-content;
+  background-color: $color-secundario;
+  border-radius: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.paso1Padre {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+  margin: 100px 0 0 0;
+}
+
+.divPaso1 {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 1.2rem;
+  border: $color-primario solid 1px;
+  border-radius: 1rem;
+  background-color: $color-primario;
+  color: $color-secundario;
+
+  h3 {
+    margin: 0 0 5px 0;
+  }
+}
+
+.campo {
+  margin: 20px 0;
+  padding: 8px;
+  border-radius: 10px;
+}
+
+.boton {
+  color: $color-primario;
+  background-color: $color-secundario;
+  text-decoration: none;
+  border-radius: 50px;
+  font-size: 1.2rem;
+  height: 50px;
+  margin: 15px 0;
+}
+
+.divIntegrantes {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+  margin: 100px 0;
+}
+
+.paso2Padre {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+  margin: 100px 0;
+  padding: 0 0;
+  height: fit-content;
+}
+
+.divPaso2 {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 1.2rem;
+  border: $color-primario solid 1px;
+  border-radius: 1rem;
+  background-color: $color-primario;
+  color: $color-secundario;
+  h3 {
+    margin: 20px 0;
+  }
+
+  .boton {
+    padding: 0 20px;
+    margin: 10px 0 0 0;
+  }
+}
+
+.paso1Local {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin-top: 50px;
+  padding: 1.2rem;
+  border: $color-primario solid 1px;
+  border-radius: 1rem;
+  background-color: $color-primario;
+  color: $color-secundario;
+  p {
+    text-align: left;
+    margin: 20px 0 ;
+    font-size: 1.1rem;
+  }
+}
+
+.divPaso2Local {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 1.2rem;
+  border: $color-primario solid 1px;
+  border-radius: 1rem;
+  background-color: $color-primario;
+  color: $color-secundario;
+  h3 {
+    margin: 20px 0;
+  }
+  div {
+    margin: 20px 0;
+  }
+  p {
+    font-size: 1.1rem;
+    margin: 5px 0;
+  }
+  .boton {
+    padding: 0 20px;
+    margin: 10px 0 0 0;
+  }
+}
