@@ -5,11 +5,7 @@ let divPadre = document.getElementById("divPadre");
 let eventoEnLS = JSON.parse(localStorage.getItem("evento"));
 let integrantesEnLS = JSON.parse(localStorage.getItem("integrantes"));
 
-
-
 // ----------------------------SI HAY DATOS EN EL LOCAL STORAGE HACE ESTO----------------------------
-
-
 
 if (eventoEnLS) {
   let contenedor = document.createElement("div");
@@ -52,16 +48,11 @@ if (eventoEnLS) {
     <button id="botonBorrar" class="boton">Vaciar Evento</button>`;
   divPaso2.appendChild(botonBorrar);
   botonBorrar.onclick = () => {
-    localStorage.clear()
+    localStorage.clear();
     window.location.reload();
   };
 
-
-
   // ----------------------------SI NO HAY DATOS EN EL LOCAL STORAGE HACE ESTO----------------------------
-
-
-
 } else {
   let contenedor = document.createElement("div");
   contenedor.innerHTML = `
@@ -75,7 +66,8 @@ if (eventoEnLS) {
                     <button id="botonContinuar" class="boton">Continuar</button>
                 </div>
               </section>
-              <section id="seccion2" class="paso2Padre"></section>`;
+              <section id="seccion2" class="paso2Padre"></section>
+              <section id="seccion3" class="paso3Padre"></section>`;
   divPadre.appendChild(contenedor);
 
   let nombreEvento = document.getElementById("nombreEvento");
@@ -117,7 +109,8 @@ if (eventoEnLS) {
       titulo.innerHTML = `
         <div class="divPaso2" id="divPaso2">
           <h3> Paso 2 de 3: Nombrar a los integrantes y sus gastos</h3>
-        </div>`;
+        </div>
+        `;
       seccion2.appendChild(titulo);
 
       let divPaso2 = document.getElementById("divPaso2");
@@ -134,7 +127,8 @@ if (eventoEnLS) {
       let contenedor = document.createElement("div");
       contenedor.innerHTML = `
         <button id="botonContinuar2" class="boton">Continuar</button>
-        <button id="botonBorrar" class="boton">Vaciar Evento</button>`;
+        <button id="botonBorrar" class="boton">Vaciar Evento</button>
+        `;
       divPaso2.appendChild(contenedor);
 
       let botonContinuar2 = document.getElementById("botonContinuar2");
@@ -153,18 +147,43 @@ if (eventoEnLS) {
               }
             }
           }
+
+          let seccion3 = document.getElementById("seccion3");
+          let titulo3 = document.createElement("div");
+          titulo3.innerHTML = `
+                <div class="divPaso3" id="divPaso3">
+                  <h3> Paso 3 de 3: ¡División de gastos!</h3>
+                </div>`;
+          seccion3.appendChild(titulo3);
           let integrantesJSON = JSON.stringify(integrantes);
           localStorage.setItem("integrantes", integrantesJSON);
+
+          console.log(integrantes);
+          let divPaso3 = document.getElementById("divPaso3");
+          for (const integrante of integrantes) {
+            let contenedor = document.createElement("div");
+            contenedor.innerHTML = `     
+                <p> Nombre: ${integrante.nombre} <p>
+                <p> Dinero puesto: $${integrante.dinero} <p>`;
+            divPaso3.appendChild(contenedor);
+          }
+
+          let botonBorrar = document.createElement("div");
+          botonBorrar.innerHTML = `
+              <button id="botonBorrar" class="boton">Vaciar Evento</button>`;
+          divPaso3.appendChild(botonBorrar);
+          botonBorrar.onclick = () => {
+            localStorage.clear();
+            window.location.reload();
+          };
         },
         { once: true }
       );
-
       botonBorrar.onclick = () => {
-        localStorage.clear()
+        localStorage.clear();
         window.location.reload();
       };
     },
     { once: true }
   );
 }
-// ----------------------------PASO 3----------------------------

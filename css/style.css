@@ -126,3 +126,19 @@ main {
   .divPaso2Local .boton {
     padding: 0 20px;
     margin: 10px 0 0 0; }
+
+.divPaso3 {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 1.2rem;
+  border: #252323 solid 1px;
+  border-radius: 1rem;
+  background-color: #252323;
+  color: #f5f1f1;
+  margin: 50px; }
+  .divPaso3 h3 {
+    margin: 20px 0; }
+  .divPaso3 .boton {
+    padding: 0 20px;
+    margin: 10px 0 0 0; }
