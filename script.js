@@ -41,7 +41,7 @@ if (eventoEnLS) {
 
   titulo.innerHTML = `
     <div class="divPaso2Local" id="divPaso2">
-      <h3> Nombre de los integrantes y sus gastos</h3>
+      <h3> Nombre de los integrantes y cuanto dinero debe poner cada uno</h3>
     </div>`;
   seccion2.appendChild(titulo);
 
@@ -63,6 +63,13 @@ if (eventoEnLS) {
 
   // ----------------------------SI NO HAY DATOS EN EL LOCAL STORAGE HACE ESTO----------------------------
 } else {
+  Swal.fire({
+    icon: "info",
+    title: "¡Instrucciones de Uso!",
+    html: "Paso 1: Crear el evento de los gastos. <br/><br/>  Paso 2: Nombrar a los integrantes y el dinero que pusieron. <br/><br/> Paso 3: Cuanto dinero debe poner cada uno.",
+    showCloseButton: true,
+    confirmButtonText: "¡Vamos a usarla!",
+  });
   let contenedor = document.createElement("div");
   contenedor.innerHTML = `
               <section class="paso1Padre">
@@ -118,7 +125,7 @@ if (eventoEnLS) {
 
       titulo.innerHTML = `
         <div class="divPaso2" id="divPaso2">
-          <h3> Paso 2 de 3: Nombrar a los integrantes y sus gastos</h3>
+          <h3> Paso 2 de 3: Nombrar a los integrantes y el dinero que pusieron</h3>
         </div>
         `;
       seccion2.appendChild(titulo);
