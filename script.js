@@ -66,7 +66,7 @@ if (eventoEnLS) {
   Swal.fire({
     icon: "info",
     title: "¡Instrucciones de Uso!",
-    html: "Paso 1: Crear el evento de los gastos. <br/><br/>  Paso 2: Nombrar a los integrantes y el dinero que pusieron. <br/><br/> Paso 3: Cuanto dinero debe poner cada uno.",
+    html: "Paso 1: Crear el evento de los gastos. <br/><br/>  Paso 2: Nombrar a los integrantes y el dinero que pusieron. <br/><br/> Paso 3: ¡Ver cuanto dinero debe poner cada uno!.",
     showCloseButton: true,
     confirmButtonText: "¡Vamos a usarla!",
   });

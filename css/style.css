@@ -34,7 +34,7 @@ main {
 .divPadre {
   width: 650px;
   height: fit-content;
-  background-color: #f5f5e9;
+  background-color: transparent;
   border-radius: 50px;
   display: flex;
   flex-direction: column;
