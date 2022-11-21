@@ -5,8 +5,22 @@
   padding: 0;
 }
 
+main {
+  background-image: url(../img/fondo.png);
+}
+
 .header {
   background-color: $color-secundario;
+  display: flex;
+  div {
+    margin: 20px;
+    text-align: center;
+  }
+}
+
+.logo {
+  width: 100px;
+  margin: 5px 0 5px 20px;
 }
 
 body {
@@ -21,7 +35,6 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 100px 0;
 }
 
 .divPadre {
@@ -33,6 +46,7 @@ main {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin: 100px 0;
 }
 
 .paso1Padre {
@@ -66,7 +80,7 @@ main {
 
 .boton {
   color: $color-primario;
-  background-color: $color-secundario;
+  background-color: white;
   text-decoration: none;
   border-radius: 50px;
   font-size: 1.2rem;
@@ -123,8 +137,12 @@ main {
   color: $color-secundario;
   p {
     text-align: left;
-    margin: 20px 0 ;
+    margin: 20px 0;
     font-size: 1.1rem;
+  }
+  .boton {
+    padding: 0 20px;
+    margin: 10px 0 0 0;
   }
 }
 
@@ -170,5 +188,9 @@ main {
   .boton {
     padding: 0 20px;
     margin: 10px 0 0 0;
+  }
+  div {
+    margin: 20px;
+    font-size: 1.2rem;
   }
 }

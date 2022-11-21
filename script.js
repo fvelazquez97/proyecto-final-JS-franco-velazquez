@@ -19,12 +19,22 @@ if (eventoEnLS) {
             <p> Descripcion del evento: ${eventoEnLS.descripcionEvento} </p>
 
             <p> Cantidad de integrantes: ${eventoEnLS.integrantesEvento} </p>
+
+            <button id="botonBorrar1" class="boton">Vaciar Evento</button>
         </div>
+
     </section>
     <section id="seccion2" class="paso2Padre"></section>
     `;
 
   divPadre.appendChild(contenedor);
+
+  let botonBorrar1 = document.getElementById("botonBorrar1");
+
+  botonBorrar1.onclick = () => {
+    localStorage.clear();
+    window.location.reload();
+  };
 
   let seccion2 = document.getElementById("seccion2");
   let titulo = document.createElement("div");
@@ -38,9 +48,8 @@ if (eventoEnLS) {
   for (const integrante of integrantesEnLS) {
     let contenedor = document.createElement("div");
     contenedor.innerHTML = `
-        <h4> Integrante N° ${integrante.id}:</h4>
         <p> Nombre: ${integrante.nombre} <p>
-        <p> Dinero puesto: $${integrante.dinero} <p>`;
+        <p> ${integrante.resultado} <p>`;
     divPaso2.appendChild(contenedor);
   }
   let botonBorrar = document.createElement("div");
@@ -79,10 +88,11 @@ if (eventoEnLS) {
   // ----------------------------PASO 2----------------------------
 
   class Integrante {
-    constructor(id, nombre, dinero) {
+    constructor(id, nombre, dinero, resultado) {
       this.id = Number(id);
       this.nombre = nombre.toUpperCase();
       this.dinero = dinero;
+      this.resultado = resultado;
     }
   }
 
@@ -101,7 +111,7 @@ if (eventoEnLS) {
       localStorage.setItem("evento", eventoJSON);
 
       for (let i = 1; i <= Number(integrantesEvento.value); i++) {
-        integrantes.push(new Integrante(i, "", 0));
+        integrantes.push(new Integrante(i, "", 0, 0));
       }
 
       let titulo = document.createElement("div");
@@ -148,6 +158,10 @@ if (eventoEnLS) {
             }
           }
 
+          const dineroTotal = integrantes
+            .map((integrantes) => integrantes.dinero)
+            .reduce((acumulador, elemento) => acumulador + elemento, 0);
+
           let seccion3 = document.getElementById("seccion3");
           let titulo3 = document.createElement("div");
           titulo3.innerHTML = `
@@ -155,16 +169,29 @@ if (eventoEnLS) {
                   <h3> Paso 3 de 3: ¡División de gastos!</h3>
                 </div>`;
           seccion3.appendChild(titulo3);
-          let integrantesJSON = JSON.stringify(integrantes);
-          localStorage.setItem("integrantes", integrantesJSON);
 
-          console.log(integrantes);
           let divPaso3 = document.getElementById("divPaso3");
+
           for (const integrante of integrantes) {
+            let dineroPoner = Number(
+              dineroTotal / integrantes.length - integrante.dinero
+            );
+            let resultado;
+            if (dineroPoner < 0) {
+              resultado = `Tiene que poner $${Math.abs(dineroPoner)}`;
+            } else if (dineroPoner == 0) {
+              resultado = `No tiene que poner dinero`;
+            } else {
+              resultado = `Le deben $${Math.abs(dineroPoner)}`;
+            }
+
+            integrante.resultado = resultado;
+            console.log(integrante);
+
             let contenedor = document.createElement("div");
             contenedor.innerHTML = `     
-                <p> Nombre: ${integrante.nombre} <p>
-                <p> Dinero puesto: $${integrante.dinero} <p>`;
+                <p> ${integrante.nombre} <p>
+                <p> ${resultado} <p>`;
             divPaso3.appendChild(contenedor);
           }
 
@@ -176,6 +203,8 @@ if (eventoEnLS) {
             localStorage.clear();
             window.location.reload();
           };
+          let integrantesJSON = JSON.stringify(integrantes);
+          localStorage.setItem("integrantes", integrantesJSON);
         },
         { once: true }
       );
