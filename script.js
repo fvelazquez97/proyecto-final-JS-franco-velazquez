@@ -158,7 +158,7 @@ if (eventoEnLS) {
         }
         const completo = [];
         for (const integrante of integrantes) {
-          if (integrante.nombre == " " || integrante.dinero == " ") {
+          if (integrante.nombre == "") {
             completo.push(false);
           } else {
             completo.push(true);
