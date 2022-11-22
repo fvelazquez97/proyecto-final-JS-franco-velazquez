@@ -167,15 +167,26 @@ main {
   text-align: center;
   padding: 1.2rem;
   border: #252323 solid 1px;
-  border-radius: 1rem;
+  border-radius: 0 0 1rem 1rem;
   background-color: #252323;
   color: #f5f5e9;
-  margin: 50px; }
-  .divPaso3 h3 {
-    margin: 20px 0; }
+  margin: 0 0 50px 0; }
   .divPaso3 .boton {
     padding: 0 20px;
     margin: 10px 0 0 0; }
   .divPaso3 div {
     margin: 20px;
     font-size: 1.2rem; }
+
+.divPaso33 {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 1.2rem;
+  border: #252323 solid 1px;
+  border-radius: 1rem 1rem 0 0;
+  background-color: #252323;
+  color: #f5f5e9;
+  margin: 50px 0 0px 0; }
+  .divPaso33 h3 {
+    margin: 20px 0; }
