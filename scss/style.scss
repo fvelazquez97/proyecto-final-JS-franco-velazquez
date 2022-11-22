@@ -1,4 +1,5 @@
 @import "variables";
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
 * {
   margin: 0;
@@ -23,10 +24,11 @@ main {
 
 .logo {
   width: 100px;
-  margin: 5px 0 5px 20px;
+  margin: 5px 0;
 }
 
 body {
+  font-family: "Roboto", sans-serif;
   background-color: $color-primario;
 }
 
@@ -115,16 +117,29 @@ main {
   text-align: center;
   padding: 1.2rem;
   border: $color-primario solid 1px;
-  border-radius: 1rem;
+  border-radius: 0 0 1rem 1rem;
   background-color: $color-primario;
   color: $color-secundario;
   h3 {
     margin: 20px 0;
   }
-
   .boton {
     padding: 0 20px;
     margin: 10px 0 0 0;
+  }
+}
+
+.divPaso22 {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 1.2rem;
+  border: $color-primario solid 1px;
+  border-radius: 1rem 1rem 0 0;
+  background-color: $color-primario;
+  color: $color-secundario;
+  h3 {
+    margin: 20px 0;
   }
 }
 

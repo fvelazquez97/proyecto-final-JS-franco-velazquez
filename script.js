@@ -116,29 +116,34 @@ if (eventoEnLS) {
 
       let eventoJSON = JSON.stringify(evento);
       localStorage.setItem("evento", eventoJSON);
-
+      let integrantes = [];
       for (let i = 1; i <= Number(integrantesEvento.value); i++) {
         integrantes.push(new Integrante(i, "", 0, 0));
       }
 
       let titulo = document.createElement("div");
-
+      seccion2.innerHTML = "";
       titulo.innerHTML = `
-        <div class="divPaso2" id="divPaso2">
+          <div class=divPaso22>
           <h3> Paso 2 de 3: Nombrar a los integrantes y el dinero que pusieron</h3>
-        </div>
+          </div>
+          <div class="divPaso2" id="divPaso2">
+
+          </div>
         `;
-      seccion2.appendChild(titulo);
+      seccion2.append(titulo);
 
       let divPaso2 = document.getElementById("divPaso2");
+      divPaso2.innerHTML = "";
 
       for (const integrante of integrantes) {
         let contenedor = document.createElement("div");
+
         contenedor.innerHTML = `
             <h4> Integrante N° ${integrante.id}:</h4>
             <input class= "campo" type= "text" id="invitado${integrante.id}" placeholder= "Nombre">
             <input class= "campo" type= "number" id="gastoInvitado${integrante.id}" placeholder= "¿Cuánto Gastó? $">`;
-        divPaso2.appendChild(contenedor);
+        divPaso2.append(contenedor);
       }
 
       let contenedor = document.createElement("div");
@@ -146,7 +151,7 @@ if (eventoEnLS) {
         <button id="botonContinuar2" class="boton">Continuar</button>
         <button id="botonBorrar" class="boton">Vaciar Evento</button>
         `;
-      divPaso2.appendChild(contenedor);
+      divPaso2.append(contenedor);
 
       let botonContinuar2 = document.getElementById("botonContinuar2");
       let botonBorrar = document.getElementById("botonBorrar");
@@ -175,7 +180,7 @@ if (eventoEnLS) {
                 <div class="divPaso3" id="divPaso3">
                   <h3> Paso 3 de 3: ¡División de gastos!</h3>
                 </div>`;
-          seccion3.appendChild(titulo3);
+          seccion3.append(titulo3);
 
           let divPaso3 = document.getElementById("divPaso3");
 
@@ -220,6 +225,8 @@ if (eventoEnLS) {
         window.location.reload();
       };
     },
-    { once: true }
+    {
+      /* once: true */
+    }
   );
 }
