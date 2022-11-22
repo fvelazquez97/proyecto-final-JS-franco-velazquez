@@ -190,15 +190,15 @@ if (eventoEnLS) {
             );
             let resultado;
             if (dineroPoner < 0) {
-              resultado = `Tiene que poner $${Math.abs(dineroPoner)}`;
+              resultado = `Le deben $${Math.abs(dineroPoner)}`;
             } else if (dineroPoner == 0) {
               resultado = `No tiene que poner dinero`;
             } else {
-              resultado = `Le deben $${Math.abs(dineroPoner)}`;
+              resultado = `Tiene que poner $${Math.abs(dineroPoner)}`;
             }
 
             integrante.resultado = resultado;
-            console.log(integrante);
+
 
             let contenedor = document.createElement("div");
             contenedor.innerHTML = `     
@@ -225,8 +225,5 @@ if (eventoEnLS) {
         window.location.reload();
       };
     },
-    {
-      /* once: true */
-    }
   );
 }
