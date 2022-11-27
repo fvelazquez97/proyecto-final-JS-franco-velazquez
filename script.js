@@ -1,8 +1,19 @@
-// ----------------------------PASO 1----------------------------
-
 let divPadre = document.getElementById("divPadre");
 let eventoEnLS = JSON.parse(localStorage.getItem("evento"));
 let integrantesEnLS = JSON.parse(localStorage.getItem("integrantes"));
+let footer = document.getElementById("footer");
+
+// ------------------------------------ AGREGANDO FETCH ------------------------------------
+
+fetch("https://worldtimeapi.org/api/ip")
+  .then((response) => response.json())
+  .then((data) => {
+    const hora = document.createElement("div");
+    hora.innerHTML = `<p> 
+    ${data.datetime}
+    </p>`;
+    footer.append(hora);
+  });
 
 // ----------------------------SI HAY DATOS EN EL LOCAL STORAGE HACE ESTO----------------------------
 
@@ -11,7 +22,7 @@ if (eventoEnLS) {
   contenedor.innerHTML = ` 
     <section class="paso1Local">
         <div class="divPaso1Local">
-            <h3>Últimno evento de gastos creado</h3>
+            <h3>Último evento de gastos creado</h3>
             <p> Evento: ${eventoEnLS.nombreEvento} </p>
             <p> Descripcion del evento: ${eventoEnLS.descripcionEvento} </p>
             <p> Cantidad de integrantes: ${eventoEnLS.integrantesEvento} </p>
@@ -49,8 +60,9 @@ if (eventoEnLS) {
     window.location.reload();
   };
 
-  // ----------------------------SI NO HAY DATOS EN EL LOCAL STORAGE HACE ESTO----------------------------
-  
+  // ---------------------------- SI NO HAY DATOS EN EL LOCAL STORAGE HACE ESTO ----------------------------
+  // ------------------------------------ PASO 1 DE 3 ------------------------------------
+
 } else {
   Swal.fire({
     icon: "info",
@@ -80,7 +92,7 @@ if (eventoEnLS) {
   let botonContinuar = document.getElementById("botonContinuar");
   let seccion2 = document.getElementById("seccion2");
 
-  // ----------------------------PASO 2----------------------------
+  // ---------------------------- PASO 2 DE 3 ----------------------------
 
   class Integrante {
     constructor(id, nombre, dinero, resultado) {
@@ -168,6 +180,8 @@ if (eventoEnLS) {
           const dineroTotal = integrantes
             .map((integrantes) => integrantes.dinero)
             .reduce((acumulador, elemento) => acumulador + elemento, 0);
+
+  // ---------------------------- PASO 3 DE 3 ----------------------------
 
           let seccion3 = document.getElementById("seccion3");
           seccion3.innerHTML = " ";
