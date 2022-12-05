@@ -35,6 +35,12 @@ body {
 footer {
   background-color: $color-secundario;
   text-align: center;
+  display: flex;
+  flex-direction: column-reverse;
+  p {
+    margin: 10px;
+    font-weight: bold;
+  }
 }
 main {
   display: flex;

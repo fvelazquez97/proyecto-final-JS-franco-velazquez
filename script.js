@@ -9,8 +9,8 @@ fetch("https://worldtimeapi.org/api/ip")
   .then((response) => response.json())
   .then((data) => {
     const hora = document.createElement("div");
-    hora.innerHTML = `<p> 
-    ${data.datetime}
+    hora.innerHTML = `<p class="fecha"> 
+    ${new Date().toDateString(data.datetime)}
     </p>`;
     footer.append(hora);
   });
@@ -62,7 +62,6 @@ if (eventoEnLS) {
 
   // ---------------------------- SI NO HAY DATOS EN EL LOCAL STORAGE HACE ESTO ----------------------------
   // ------------------------------------ PASO 1 DE 3 ------------------------------------
-
 } else {
   Swal.fire({
     icon: "info",
@@ -181,7 +180,7 @@ if (eventoEnLS) {
             .map((integrantes) => integrantes.dinero)
             .reduce((acumulador, elemento) => acumulador + elemento, 0);
 
-  // ---------------------------- PASO 3 DE 3 ----------------------------
+          // ---------------------------- PASO 3 DE 3 ----------------------------
 
           let seccion3 = document.getElementById("seccion3");
           seccion3.innerHTML = " ";

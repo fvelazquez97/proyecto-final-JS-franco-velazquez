@@ -26,7 +26,12 @@ body {
 
 footer {
   background-color: #f5f5e9;
-  text-align: center; }
+  text-align: center;
+  display: flex;
+  flex-direction: column-reverse; }
+  footer p {
+    margin: 10px;
+    font-weight: bold; }
 
 main {
   display: flex;
